@@ -1,5 +1,5 @@
 # pipelink
-a tiny pipe ipc framework using  I/O completion port in win32
+a tiny pipe ipc framework using  iocp in win32 and provider easy use api
 
 author:fangqing0827@126.com
 
