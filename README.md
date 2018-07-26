@@ -1,4 +1,4 @@
-# pipe_iocp
+# pipelink
 a tiny pipe ipc framework using  I/O completion port in win32
 
 author:fangqing0827@126.com
