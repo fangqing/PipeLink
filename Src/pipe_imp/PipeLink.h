@@ -1,8 +1,5 @@
 #pragma once
 
-//author:fangqing0827@126.com
-//https://github.com/fangqing/pipe_iocp
-
 #include <unordered_map>
 #include <list>
 #include <assert.h>

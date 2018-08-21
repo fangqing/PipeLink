@@ -1,8 +1,5 @@
 #pragma once
 
-//author:fangqing0827@126.com
-//https://github.com/fangqing/pipe_iocp
-
 #include "PipeDef.h"
 
 void  InitPipe();
