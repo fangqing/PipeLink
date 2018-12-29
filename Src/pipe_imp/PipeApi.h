@@ -4,7 +4,6 @@
 
 void  InitPipe();
 void  UnInitPipe();
-// eventCb is not called thread-safe
 HLINK PipeCreate(EventCallBack eventCb);
 bool  PipeListen(HLINK hLink);
 bool  PipeConnnect(HLINK hlink);

@@ -1,21 +1,25 @@
 #pragma once
-#define  IOREQ_RECV		0x01
-#define  IOREQ_SEND		0x02
-#define  IOREQ_ACCEPT	0x04   //Server接受Client的连接
+
+//packet type
+#define  IOREQ_RECV		0x01   //recv data
+#define  IOREQ_SEND		0x02   //send data
+#define  IOREQ_ACCEPT	0x04   //Server accept connection from client
 
 #define  PIPE_TIMEOUT 2000
 
 #define  IOBUF_MAXSIZE	1024
 #define	 BUFSIZE		128
 
-#define EVT_ESTABLISH	1	//连接
-#define EVT_CLOSED		2	//销毁
-#define EVT_RECEIVEDATA 3	//接收数据
-#define EVT_ERRPROTOCOL 4   //传输数据出错
+//event type
+#define EVT_ESTABLISH	1	//pipe establish
+#define EVT_CLOSED		2	//pipe close
+#define EVT_RECEIVEDATA 3	//pipe receive data
+#define EVT_ERR_PROTOCOL 4  //error ocurr when unpack data with custom protocol
 
-#define STATUS_RECV_BEGIN		0x0001		//开始接收
-#define STATUS_RECV_MIDDLE		0x0002		//正在接收
-#define STATUS_RECV_END			0x0003		//接收完成
+//status type
+#define STATUS_RECV_BEGIN		0x0001		
+#define STATUS_RECV_MIDDLE		0x0002		
+#define STATUS_RECV_END			0x0003		
 
 typedef unsigned long HLINK;
 typedef void(*EventCallBack)(void* pParam1, void* pParam2);
@@ -28,10 +32,10 @@ struct  LinkEvent
 
 struct LinkRecvDataParam
 {
-	unsigned int nStatus;	//接收数据状态
-	char* pRecvData;		//接收数据Buf
-	unsigned int cbSize;	//该数据包字节大小
-	unsigned int nIndex;	//当前接收字节数
+	unsigned int nStatus;	//link status
+	char* pRecvData;		//buffer for receiveing data 
+	unsigned int cbSize;	//buffer size
+	unsigned int nIndex;	//how much bytes has used in the buffer
 };
 
 struct SOvlpIOContext
@@ -39,7 +43,7 @@ struct SOvlpIOContext
 	OVERLAPPED ovlp;
 	BYTE io_type;
 	HANDLE hPipe;
-	DWORD dwBytes;  //读写的字节数
+	DWORD dwBytes;  
 	HLINK hLink;
 };
 

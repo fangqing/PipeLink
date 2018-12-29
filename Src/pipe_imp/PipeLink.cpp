@@ -500,7 +500,7 @@ void CPipeLink::ProcessRecvInvalidPkt()
 {
 	InitPacketHead();
 	m_pRecv->Free();
-	SendLinkEvent(EVT_ERRPROTOCOL);
+	SendLinkEvent(EVT_ERR_PROTOCOL);
 	m_bInvalidPacket = TRUE;
 	Destroy();
 }

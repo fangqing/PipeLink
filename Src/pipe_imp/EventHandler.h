@@ -29,7 +29,6 @@ HLINK CEventHandler<TYPE>::PipeCreate()
 template <int TYPE>
 void CEventHandler<TYPE>::IOCallbackFunc(void* pParam1, void* pParam2)
 {
-	//be carefutl::this function is not thread-safe
 	if (m_pThis == NULL)
 		return;
 
@@ -49,7 +48,7 @@ void CEventHandler<TYPE>::IOCallbackFunc(void* pParam1, void* pParam2)
 			if (pRecv->nStatus == STATUS_RECV_END)
 				m_pThis->OnReceiveData(pEvent->hLink, pRecv->pRecvData, pRecv->cbSize);
 			break;
-		case EVT_ERRPROTOCOL:
+		case EVT_ERR_PROTOCOL:
 			m_pThis->OnProtocolError(pEvent->hLink);
 			break;
 		default:
